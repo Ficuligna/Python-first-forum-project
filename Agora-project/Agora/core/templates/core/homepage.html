@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if user.is_staff %}
+    <a href="{% url 'creasezione' %}">Crea nuova sezione</a>
+  {% endif %}
+  {% for sezione in object_list %}
+    <h1><a href="{{sezione.get_absolute_url}}">{{sezione.titolo}}</a></h1>
+    <p>{{sezione.descrizione}}</p>
+    <img src="{{sezione.logo.url}}" alt="">
+    <hr>
+  {% endfor %}
+
+{% endblock content %}

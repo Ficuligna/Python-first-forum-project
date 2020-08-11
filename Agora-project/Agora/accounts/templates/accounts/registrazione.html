@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Registrati al Forum</h1>
+  <form class="" method="post" novalidate>
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" name="" value="Registrati">
+  </form>
+
+{% endblock %}

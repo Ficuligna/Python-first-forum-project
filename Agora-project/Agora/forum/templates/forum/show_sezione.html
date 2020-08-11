@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{sezione.titolo}}{% endblock title %}
+{% block content %}
+
+<h1>{{sezione.titolo}}</h1><br>
+
+<p>{{sezione.descrizione}}</p>
+{% if user.is_authenticated %}
+<a href="{% url 'crea_discussione' pk=sezione.pk%}">Crea nuova discussione</a>
+{% endif %}
+{% endblock content %}
+
+
+{% block text %}
+<ul>
+  {% for discussione in discussioni %}
+  <li>
+    <a href="{{ discussione.get_absolute_url }}">{{discussione.titolo}}</a>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

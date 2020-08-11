@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Effettua il login</h1>
+  <form class="" method="post" novalidate>
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" name="" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  <p><a href="{% url 'password_reset' %}">Password dimenticata?</a></p>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{sezione.titolo}}{% endblock title %}
+{% block content %}
+
+{% for sezione in objects %}
+<h1>{{sezione.titolo}}</h1><br>
+
+<p>{{sezione.descrizione}}</p>
+{% endblock content %}

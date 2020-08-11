@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{discussione.titolo}}{% endblock title %}
+{% block content %}
+
+<h1>{{discussione.titolo}}</h1><br>
+
+{% endblock content %}
+{% block text %}
+<ul>
+  {% for post in posts %}
+    <li>
+      post creato da: {{post.creatore}} il {{post.data}}<br>
+      {{post.testo}}
+    </li>
+    {% if request.user == post.creatore %}
+    <a href="{% url 'elimina_post' id=discussione.pk pk=post.pk %}">Elimina post</a>
+    {% endif %}
+    <hr>
+  {% endfor %}
+</ul>
+{% include "forum/form_risposta.html"%}
+
+
+{% endblock %}

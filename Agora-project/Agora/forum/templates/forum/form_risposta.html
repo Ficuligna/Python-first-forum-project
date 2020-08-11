@@ -1,0 +1,6 @@
+{% load crispy_forms_tags %}
+  <form action="{% url 'aggiungi_risposta' pk=discussione.pk %}" class="" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{form_risposta|crispy}}
+    <input type="submit" name="" class="primary" value="Rispondi">
+  </form>
